@@ -2,15 +2,21 @@
 require('dotenv').config()
 
 // DEPENDENCIES IMPORTS
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')()
+const formbody = require('fastify-formbody')
+const routes = require('fastify-routes')
 const cors = require('fastify-cors')
 const helmet = require('fastify-helmet')
-
-const routes = require('./routes')
+const logger = require('fastify-log')
 
 
 // ROUTES MIDDLEWARE
-fastify.register(routes, { prefix: '/api/v1' })
+fastify.register(routes)
+require('./routes')(fastify)
+
+
+// JSON
+fastify.register(formbody)
 
 
 // SERVER PROTECTION
@@ -21,16 +27,18 @@ fastify.register(cors, {})
 fastify.register(helmet, {})
 
 
+// CUSTOM LOGGER
+fastify.register(logger)
+
+
 // START SERVER
-const start = async () => {
-    try {
-        await fastify.listen(
-            process.env.PORT || 3003,
-            () => console.log(`🐱‍💻 Up and runin\' on localhost:${process.env.PORT || 3003} 🐱‍👤`)
-        )
-    } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
+fastify.listen(
+    process.env.PORT || 3003,
+    (err) => {
+        if (err) {
+            fastify.warn(err)
+        } else {
+            fastify.info(`🐱‍💻 Up and runin\' on localhost:${process.env.PORT || 3003} 🐱‍👤`)
+        }
     }
-}
-start()
+);

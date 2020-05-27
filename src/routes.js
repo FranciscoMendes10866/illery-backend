@@ -1,10 +1,5 @@
-async function routes(fastify, options) {
+const Controllers = require('./controllers')
 
-    fastify.get('/', async (req,res) => {
-        res.send({
-            'name': 'mendes'
-        })
-    })
+module.exports = fastify => {
+    fastify.get('/', Controllers.createRecord)
 }
-
-module.exports = routes
