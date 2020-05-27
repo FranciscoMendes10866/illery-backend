@@ -27,11 +27,11 @@ fastify.register(fileUpload, {
 
 
 // SERVER PROTECTION HANDLER
-fastify.register(cors, {})
+fastify.register(cors)
 
 
 // HEADERS PROTECTION HANDLER
-fastify.register(helmet, {})
+fastify.register(helmet)
 
 
 // CUSTOM LOGGER

@@ -1,6 +1,5 @@
 module.exports = class Controller {
-
-    static async createRecord(req, res) {
+    static async getAllRecords(req, res) {
         res.send({ 'home': 'mendes' })
     }
 }
