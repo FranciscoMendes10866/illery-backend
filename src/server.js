@@ -7,7 +7,6 @@ const formbody = require('fastify-formbody')
 const routes = require('fastify-routes')
 const cors = require('fastify-cors')
 const helmet = require('fastify-helmet')
-const logger = require('fastify-log')
 const fileUpload = require('fastify-file-upload')
 
 
@@ -34,18 +33,15 @@ fastify.register(cors)
 fastify.register(helmet)
 
 
-// CUSTOM LOGGER
-fastify.register(logger)
-
-
 // START SERVER
 fastify.listen(
     process.env.PORT || 3003,
     (err) => {
         if (err) {
-            fastify.warn(err)
+            fastify.log.error(err)
+            process.exit(1)
         } else {
-            fastify.info(`🐱‍💻 Up and runin\' on localhost:${process.env.PORT || 3003} 🐱‍👤`)
+            console.log(`🐱‍💻 Up and runin\' on localhost:${process.env.PORT || 3003} 🐱‍👤`)
         }
     }
 );

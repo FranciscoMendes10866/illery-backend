@@ -19,7 +19,6 @@
     "fastify-file-upload": "^2.0.1",
     "fastify-formbody": "^3.2.0",
     "fastify-helmet": "^3.0.2",
-    "fastify-log": "^1.2.1",
     "fastify-multer": "^1.5.4",
     "fastify-routes": "^2.0.3"
   },

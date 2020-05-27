@@ -66,7 +66,7 @@ ansi-regex@^5.0.0:
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.0.tgz#388539f55179bf39339c81af30a654d69f87cb75"
   integrity sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==
 
-ansi-styles@^4.0.0, ansi-styles@^4.1.0:
+ansi-styles@^4.1.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.2.1.tgz#90ae75c424d008d2624c5bf29ead3177ebfcf359"
   integrity sha512-9VGjrMsG1vePxcSweQsN20KY/c4zN0h9fLjqAbwbPfahM3t+NL+M9HC8xeXG2I8pX5NoamTGNuomEUFI7fcUjA==
@@ -492,14 +492,6 @@ fastify-helmet@^3.0.2:
     referrer-policy "^1.1.0"
     x-xss-protection "^1.1.0"
 
-fastify-log@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/fastify-log/-/fastify-log-1.2.1.tgz#4c05754412c1ef856014e8e79084c9cfcf359b4b"
-  integrity sha512-4obVSSyh7Lji87GNfvhDZ4qxOfYUuIivpUnBLRGoSDZcZI6nH21zWEtaFIUZHMFA64/4CC+VoNLD7Vs+wydS3A==
-  dependencies:
-    ansi-styles "^4.0.0"
-    fastify-plugin "^1.5.0"
-
 fastify-multer@^1.5.4:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/fastify-multer/-/fastify-multer-1.5.4.tgz#14105e61436c82f5266218cbe8a62adef2780c75"
@@ -514,7 +506,7 @@ fastify-multer@^1.5.4:
     type-is "~1.6.18"
     xtend "^4.0.2"
 
-fastify-plugin@^1.2.0, fastify-plugin@^1.2.1, fastify-plugin@^1.5.0, fastify-plugin@^1.6.0, fastify-plugin@^1.6.1, fastify-plugin@~1.6.0:
+fastify-plugin@^1.2.0, fastify-plugin@^1.2.1, fastify-plugin@^1.6.0, fastify-plugin@^1.6.1, fastify-plugin@~1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-1.6.1.tgz#122f5a5eeb630d55c301713145a9d188e6d5dd5b"
   integrity sha512-APBcb27s+MjaBIerFirYmBLatoPCgmHZM6XP0K+nDL9k0yX8NJPWDY1RAC3bh6z+AB5ULS2j31BUfLMT3uaZ4A==

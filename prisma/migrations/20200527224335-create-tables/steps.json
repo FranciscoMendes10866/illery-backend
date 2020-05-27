@@ -21,7 +21,7 @@
         "source": "db"
       },
       "argument": "url",
-      "value": "env(\"DATABASE_URL\")"
+      "value": "\"postgres://root:root@192.168.99.100:5000/illeryDB\""
     },
     {
       "tag": "CreateModel",
@@ -133,6 +133,13 @@
     {
       "tag": "CreateField",
       "model": "Post",
+      "field": "openClose",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
       "field": "phone",
       "type": "String",
       "arity": "Optional"
@@ -140,14 +147,28 @@
     {
       "tag": "CreateField",
       "model": "Post",
-      "field": "email",
+      "field": "location",
       "type": "String",
       "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "Post",
-      "field": "User",
+      "field": "eventEmail",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "website",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "author",
       "type": "User",
       "arity": "Required"
     },
@@ -157,7 +178,7 @@
         "path": {
           "tag": "Field",
           "model": "Post",
-          "field": "User"
+          "field": "author"
         },
         "directive": "relation"
       }
@@ -169,7 +190,7 @@
         "path": {
           "tag": "Field",
           "model": "Post",
-          "field": "User"
+          "field": "author"
         },
         "directive": "relation"
       },
@@ -183,7 +204,7 @@
         "path": {
           "tag": "Field",
           "model": "Post",
-          "field": "User"
+          "field": "author"
         },
         "directive": "relation"
       },
