@@ -1,8 +1,8 @@
 // ENV VARS
-require('dotenv').config({ logger: true })
+require('dotenv').config()
 
 // DEPENDENCIES IMPORTS
-const fastify = require('fastify')()
+const fastify = require('fastify')({ logger: true })
 const cors = require('fastify-cors')
 const helmet = require('fastify-helmet')
 
