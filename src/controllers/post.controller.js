@@ -3,10 +3,6 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 module.exports = class Controller {
-    // TEST ROUTE
-    static async testRoute(request, reply) {
-        reply.send({ 'home': 'mendes' })
-    }
 
     // DELETES A POST
     static async destroy(request, reply) {
