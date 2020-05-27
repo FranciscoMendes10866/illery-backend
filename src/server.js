@@ -8,6 +8,7 @@ const routes = require('fastify-routes')
 const cors = require('fastify-cors')
 const helmet = require('fastify-helmet')
 const logger = require('fastify-log')
+const fileUpload = require('fastify-file-upload')
 
 
 // ROUTES MIDDLEWARE
@@ -15,15 +16,21 @@ fastify.register(routes)
 require('./routes')(fastify)
 
 
-// JSON
+// BODY JSON HANDLER
 fastify.register(formbody)
 
 
-// SERVER PROTECTION
+// FILES UPLOAD HANDLER
+fastify.register(fileUpload, {
+    limits: { fileSize: process.env.FILESIZE },
+})
+
+
+// SERVER PROTECTION HANDLER
 fastify.register(cors, {})
 
 
-// HEADERS PROTECTION
+// HEADERS PROTECTION HANDLER
 fastify.register(helmet, {})
 
 
