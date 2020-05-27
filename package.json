@@ -1,0 +1,21 @@
+{
+  "name": "illery",
+  "version": "1.0.0",
+  "description": "Multimedia events api",
+  "main": "server.js",
+  "author": "Francisco Mendes",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^2.14.1",
+    "fastify-cors": "^3.0.3",
+    "fastify-helmet": "^3.0.2"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.0.0-beta.6",
+    "nodemon": "^2.0.4"
+  }
+}
