@@ -23,7 +23,10 @@ module.exports = class Controller {
                 openClose: request.body.openClose,
                 slogan: request.body.slogan,
                 content: request.body.content,
-                picture: request.body.picture,
+                /**
+                 *  Ainda tenho de fazer com que o que é enviado é o link do CDN da cloudinary storage
+                 * */
+                picture: request.file.filename,
                 phone: request.body.phone,
                 website: request.body.website,
                 location: request.body.location,

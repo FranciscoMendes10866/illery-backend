@@ -155,7 +155,7 @@ buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
-busboy@^0.3.1, busboy@~0.3.1:
+busboy@~0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/busboy/-/busboy-0.3.1.tgz#170899274c5bf38aae27d5c62b71268cd585fd1b"
   integrity sha512-y7tTxhGKXcyBxRKAni+awqx8uqaJKrSFSNFSeRG5CsWNdmy2BIK+6VGWEW7TZnIO/533mtMEA4rOevQV815YJw==
@@ -406,13 +406,6 @@ expect-ct@^0.3.0:
   resolved "https://registry.yarnpkg.com/expect-ct/-/expect-ct-0.3.0.tgz#c41ceabe62f914a1df893e968e49c2a6beefb024"
   integrity sha512-7RWfSVDd3q6gkLCrItM0GiIB391WeD6lRldx9lFmIcq7nrYDtDj30S5mm4xHTOndQ99ZRqXGbh3WnxRLF2rMOg==
 
-express-fileupload@^1.1.5:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/express-fileupload/-/express-fileupload-1.1.6.tgz#0ac2659ad8c1128c92c8580fd6e15b8b15343db0"
-  integrity sha512-w24zPWT8DkoIxSVkbxYPo9hkTiLpCQQzNsLRTCnecBhfbYv+IkIC5uLw2MIUAxBZ+7UMmXPjGxlhzUXo4RcbZw==
-  dependencies:
-    busboy "^0.3.1"
-
 fast-decode-uri-component@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/fast-decode-uri-component/-/fast-decode-uri-component-1.0.1.tgz#46f8b6c22b30ff7a81357d4f59abfae938202543"
@@ -454,14 +447,6 @@ fastify-cors@^3.0.3:
   dependencies:
     fastify-plugin "^1.6.0"
     vary "^1.1.2"
-
-fastify-file-upload@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fastify-file-upload/-/fastify-file-upload-2.0.1.tgz#5620bc500999feff318a886f5ab16ee35890cc64"
-  integrity sha512-y3MPQjvtqNAnuSArQknmRB2zzRacxqSrlhlLIy58DZm08mq0MOencN42X5T8lZkoNPJ6CncBF67S4vrt3/J1bA==
-  dependencies:
-    express-fileupload "^1.1.5"
-    fastify-plugin "^1.6.0"
 
 fastify-formbody@^3.2.0:
   version "3.2.0"
