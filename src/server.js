@@ -1,35 +1,19 @@
 // ENV VARS
 require('dotenv').config()
 
-// DEPENDENCIES IMPORTS
-const fastify = require('fastify')()
-const formbody = require('fastify-formbody')
-const routes = require('fastify-routes')
-const cors = require('fastify-cors')
-const helmet = require('fastify-helmet')
+const app = require('express')()
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const helmet = require('helmet')
+const morgan = require('morgan')
 
-// ROUTES MIDDLEWARE
-fastify.register(routes)
-require('./routes')(fastify)
+const port = process.env.PORT || 3333
+const routes = require('./routes')
 
-// BODY JSON HANDLER
-fastify.register(formbody)
+app.use(bodyParser.json())
+app.use(cors())
+app.use(helmet())
+app.use(morgan('dev'))
+app.use('/api/v1', routes)
 
-// SERVER PROTECTION HANDLER
-fastify.register(cors)
-
-// HEADERS PROTECTION HANDLER
-fastify.register(helmet)
-
-// START SERVER
-fastify.listen(
-    process.env.PORT || 3003,
-    (err) => {
-        if (err) {
-            fastify.log.error(err)
-            process.exit(1)
-        } else {
-            console.log(`🐱‍💻 Up and runin\' on localhost:${process.env.PORT || 3003} 🐱‍👤`)
-        }
-    }
-);
+app.listen(port)

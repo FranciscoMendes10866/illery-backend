@@ -1,16 +1,18 @@
-const multer = require('fastify-multer')
+const router = require('express').Router()
 
 const postControllers = require('./controllers/post.controller')
 const userControllers = require('./controllers/user.controller')
 const multerConfig = require('./config/multer.config')
 
-module.exports = fastify => {
-    // GETS ALL POSTS
-    fastify.post('/api/v1/posts', postControllers.create)
-    fastify.delete('/api/v1/posts/:id', postControllers.destroy)
-    fastify.get('/api/v1/posts', postControllers.getAll)
 
-    // USER MODEL
-    fastify.post('/api/v1/register', userControllers.register)
-    fastify.post('/api/v1/login', userControllers.login)
-}
+// GETS ALL POSTS
+router.post('/posts', postControllers.create)
+router.delete('/posts/:id', postControllers.destroy)
+router.get('/posts', postControllers.getAll)
+
+// USER MODEL
+router.post('/register', userControllers.register)
+router.post('/login', userControllers.login)
+
+
+module.exports = router
