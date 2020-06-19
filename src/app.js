@@ -10,6 +10,7 @@ const morgan = require('morgan')
 const routes = require('./routes')
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(helmet())
 app.use(morgan('dev'))
