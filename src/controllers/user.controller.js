@@ -13,9 +13,6 @@ module.exports = class Controller {
             .catch(e => {
                 throw e
             })
-            .finally(async () => {
-                await prisma.disconnect()
-            })
         reply.send(result)
     }
 

@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url = "postgres://root:root@192.168.99.100:5000/illeryDB"
+  url = "postgres://root:root@localhost:5000/illeryDB"
 }
 
 generator client {
