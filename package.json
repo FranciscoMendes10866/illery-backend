@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon ./src/main.js",
-    "start:prod": "node src/main.js"
+    "start:prod": "sucrase-node ./src/main.js"
   },
   "dependencies": {
     "@prisma/cli": "^2.0.0-beta.6",
