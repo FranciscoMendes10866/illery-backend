@@ -4,22 +4,22 @@ const prisma = new PrismaClient();
 const Controller = {};
 
 // CREATES A NEW ACCOUNT
-Controller.register = async (request, reply) => {
+Controller.register = async (req, res) => {
   const result = await prisma.user
     .create({
       data: {
-        ...request.body,
+        ...req.body,
       },
     })
     .catch((e) => {
       throw e;
     });
-  reply.send(result);
+  res.send(result);
 };
 
 // SIGNSIN TO AN ACTUAL ACCOUNT
-Controller.login = async (request, reply) => {
-  const { email, password } = request.body;
+Controller.login = async (req, res) => {
+  const { email, password } = req.body;
 
   const Val = await prisma.user.findOne({
     where: {
@@ -27,17 +27,17 @@ Controller.login = async (request, reply) => {
     },
   });
   if (!Val) {
-    reply.code(403).send({ error: "An error occurred" });
+    res.code(403).send({ error: "An error occurred" });
   }
 
   const isPasswordValid = password === Val.password;
   if (!isPasswordValid) {
-    reply.code(403).send({ error: "An error occurred" });
+    res.code(403).send({ error: "An error occurred" });
   }
 
-  const result = { user: request.body };
+  const result = { user: req.body };
 
-  reply.send(result);
+  res.send(result);
 };
 
 export default Controller;

@@ -1,45 +1,48 @@
 import { PrismaClient } from '@prisma/client'
 
+import { dataUri } from '../middleware/multer.config'
+import { uploader } from './config/cloudinary.config'
+
 const prisma = new PrismaClient();
 const Controller = {};
 
 // DELETES A POST
-Controller.destroy = async (request, reply) => {
-  const { id } = request.params;
+Controller.destroy = async (req, res) => {
+  const { id } = req.params;
   const post = await prisma.post.delete({
     where: {
       id: id,
     },
   });
-  reply.send(post);
+  res.send(post);
 };
 
 // CREATES A NEW POST
-Controller.create = async (request, reply) => {
+Controller.create = async (req, res) => {
   const result = await prisma.post.create({
     data: {
-      name: request.body.name,
-      openClose: request.body.openClose,
-      slogan: request.body.slogan,
-      content: request.body.content,
+      name: req.body.name,
+      openClose: req.body.openClose,
+      slogan: req.body.slogan,
+      content: req.body.content,
       /**
        *  Ainda tenho de fazer com que o que é enviado é o link do CDN da cloudinary storage
        * */
-      picture: request.file.filename,
-      phone: request.body.phone,
-      website: request.body.website,
-      location: request.body.location,
-      eventEmail: request.body.eventEmail,
-      author: { connect: { email: request.body.authorEmail } },
+      picture: req.file.filename,
+      phone: req.body.phone,
+      website: req.body.website,
+      location: req.body.location,
+      eventEmail: req.body.eventEmail,
+      author: { connect: { email: req.body.authorEmail } },
     },
   });
-  reply.send(result);
+  res.send(result);
 };
 
 // GETS ALL POSTS (FEED)
-Controller.getAll = async (request, reply) => {
+Controller.getAll = async (req, res) => {
   const posts = await prisma.post.findMany();
-  reply.send(posts);
+  res.send(posts);
 };
 
 export default Controller

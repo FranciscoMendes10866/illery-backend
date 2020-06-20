@@ -1,5 +1,6 @@
 import { Router } from 'express'
-import multerUploads from './config/multer.config'
+
+import { multerUploads } from './middleware/multer.config'
 
 import postControllers from './controllers/post.controller'
 import userControllers from './controllers/user.controller'
