@@ -1,2 +1,6 @@
-const multer = require('multer')
-const crypto = require('crypto')
+import multer from 'multer';
+
+const storage = multer.memoryStorage();
+const multerUploads = multer({ storage }).single('picture');
+
+export default multerUploads;

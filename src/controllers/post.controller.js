@@ -1,4 +1,4 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
 const Controller = {};
@@ -42,4 +42,4 @@ Controller.getAll = async (request, reply) => {
   reply.send(posts);
 };
 
-module.exports = Controller
+export default Controller

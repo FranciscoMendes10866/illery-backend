@@ -1,10 +1,10 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient();
-const controller = {};
+const Controller = {};
 
 // CREATES A NEW ACCOUNT
-controller.register = async (request, reply) => {
+Controller.register = async (request, reply) => {
   const result = await prisma.user
     .create({
       data: {
@@ -18,7 +18,7 @@ controller.register = async (request, reply) => {
 };
 
 // SIGNSIN TO AN ACTUAL ACCOUNT
-controller.login = async (request, reply) => {
+Controller.login = async (request, reply) => {
   const { email, password } = request.body;
 
   const Val = await prisma.user.findOne({
@@ -40,4 +40,4 @@ controller.login = async (request, reply) => {
   reply.send(result);
 };
 
-module.exports = controller;
+export default Controller;

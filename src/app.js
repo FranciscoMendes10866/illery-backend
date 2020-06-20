@@ -1,19 +1,19 @@
-// ENV VARS
-require('dotenv').config()
+//import app from 'express'
+import express from 'express'
+import { json, urlencoded } from 'body-parser'
+import cors from 'cors'
+import helmet from 'helmet'
+import morgan from 'morgan'
 
-const app = require('express')()
-const bodyParser = require('body-parser')
-const cors = require('cors')
-const helmet = require('helmet')
-const morgan = require('morgan')
+import routes from './routes'
 
-const routes = require('./routes')
+const app = express()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(json())
+app.use(urlencoded({ extended: false }))
 app.use(cors())
 app.use(helmet())
 app.use(morgan('dev'))
 app.use('/api/v1', routes)
 
-module.exports = app
+export default app
