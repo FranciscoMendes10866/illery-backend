@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 
-import { dataUri } from '../middleware/multer.config'
-import { uploader } from './config/cloudinary.config'
+import { uploader } from '../config/cloudinary.config'
 
 const prisma = new PrismaClient();
 const Controller = {};
