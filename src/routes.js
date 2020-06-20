@@ -1,15 +1,15 @@
 import { Router } from 'express'
 
-import multerUpload from './middleware/multer.config'
+import parser from './middleware/multer.middleware'
 
 import postControllers from './controllers/post.controller'
 import userControllers from './controllers/user.controller'
 
 const router = Router()
 
-// GETS ALL POSTS
+// POSTS
 router.post('/posts',
-    multerUpload.single('picture'),
+    parser.single('picture'),
     postControllers.create)
 
 router.delete('/posts/:id', postControllers.destroy)
