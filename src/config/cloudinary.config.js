@@ -1,12 +1,9 @@
-import { config, uploader } from 'cloudinary'
+import Cloudinary from 'cloudinary'
 
-const cloudinaryConfig = (req, res, next) => {
-    config({
-        cloud_name: process.env.CLOUD_NAME,
-        api_key: process.env.CLOUD_API_KEY,
-        api_secret: process.env.CLOUD_API_SECRET
-    })
-    next()
-}
+Cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET
+})
 
-exports = { cloudinaryConfig, uploader }
+export default Cloudinary

@@ -1,7 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 
-import { uploader } from '../config/cloudinary.config'
-
 const prisma = new PrismaClient();
 const Controller = {};
 
@@ -18,24 +16,25 @@ Controller.destroy = async (req, res) => {
 
 // CREATES A NEW POST
 Controller.create = async (req, res) => {
-  const result = await prisma.post.create({
-    data: {
-      name: req.body.name,
-      openClose: req.body.openClose,
-      slogan: req.body.slogan,
-      content: req.body.content,
-      /**
-       *  Ainda tenho de fazer com que o que é enviado é o link do CDN da cloudinary storage
-       * */
-      picture: req.file.filename,
-      phone: req.body.phone,
-      website: req.body.website,
-      location: req.body.location,
-      eventEmail: req.body.eventEmail,
-      author: { connect: { email: req.body.authorEmail } },
-    },
-  });
-  res.send(result);
+  console.log(req.file);
+  // const result = await prisma.post.create({
+  //   data: {
+  //     name: req.body.name,
+  //     openClose: req.body.openClose,
+  //     slogan: req.body.slogan,
+  //     content: req.body.content,
+  //     /**
+  //      *  Ainda tenho de fazer com que o que é enviado é o link do CDN da cloudinary storage
+  //      * */
+  //     picture: req.file.filename,
+  //     phone: req.body.phone,
+  //     website: req.body.website,
+  //     location: req.body.location,
+  //     eventEmail: req.body.eventEmail,
+  //     author: { connect: { email: req.body.authorEmail } },
+  //   },
+  // });
+  // res.send(result);
 };
 
 // GETS ALL POSTS (FEED)

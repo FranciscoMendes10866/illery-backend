@@ -1,6 +1,16 @@
 import multer from 'multer';
+import cloudinaryStorage from 'multer-storage-cloudinary'
 
-const storage = multer.memoryStorage();
-const multerUploads = multer({ storage }).single('image');
+import cloudinaryConfig from '../config/cloudinary.config'
 
-export { multerUploads };
+const storage = cloudinaryStorage({
+    cloudinary: cloudinaryConfig,
+    folder: 'illeryPics',
+    allowedFormats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ width: 960, height: 960, crop: 'limit' }]
+});
+
+const cloudStorage = multer({ storage: storage });
+
+
+export default cloudStorage
