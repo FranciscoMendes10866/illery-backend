@@ -7,11 +7,15 @@
   "license": "MIT",
   "scripts": {
     "start:dev": "nodemon ./src/main.js",
-    "start:prod": "sucrase-node ./src/main.js"
+    "start:prod": "sucrase-node ./src/main.js",
+    "prisma:studio": "prisma studio --experimental",
+    "prisma:intro": "prisma introspect",
+    "prisma:save": "prisma migrate save --experimental --name",
+    "prisma:migrate": "prisma migrate up --experimental"
   },
   "dependencies": {
-    "@prisma/cli": "^2.0.0-beta.6",
-    "@prisma/client": "^2.0.0-beta.6",
+    "@prisma/cli": "^2.1.1",
+    "@prisma/client": "^2.1.1",
     "body-parser": "^1.19.0",
     "cloudinary": "^1.22.0",
     "cors": "^2.8.5",
