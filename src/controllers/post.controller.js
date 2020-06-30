@@ -6,9 +6,10 @@ const Controller = {};
 // DELETES A POST
 Controller.destroy = async (req, res) => {
   const { id } = req.params;
+  const convertedId = Number(id);
   const post = await prisma.post.delete({
     where: {
-      id: id,
+      id: convertedId,
     },
   });
   res.send(post);
