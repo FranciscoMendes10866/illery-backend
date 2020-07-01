@@ -35,9 +35,7 @@ Controller.login = async (req, res) => {
     res.code(403).send({ error: "An error occurred" });
   }
 
-  const result = { user: req.body };
-
-  res.send(result);
+  res.send(Val);
 };
 
 export default Controller;
